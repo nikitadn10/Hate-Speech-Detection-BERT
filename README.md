@@ -141,8 +141,30 @@ predict_text("have a nice day")      # → Non-Hate
 Hate-Speech-Detection-BERT/
 │
 ├── hate_speech_detection.ipynb   # Full notebook: data, training, evaluation, inference
-└── README.md
+├── README.md
+├── requirements.txt              # Project dependencies
+├── .gitignore                    # Excludes cache, checkpoints, model weights
+└── LICENSE                       # MIT License
 ```
+
+---
+
+## ⚠️ Limitations
+
+- **Recall ceiling:** Even after threshold tuning, the model still misses ~29% of actual hate/offensive tweets 
+  (recall ≈ 0.71 at the chosen threshold). For a production moderation system, this would need to be significantly 
+  higher before relying on it as a sole filter.
+- **Precision-recall tradeoff:** The chosen threshold (0.30) intentionally favors catching more hate speech over 
+  avoiding false positives — meaning some non-offensive tweets will be incorrectly flagged. This is a deliberate 
+  design choice, not an oversight, but it's a real cost in a live system.
+- **Dataset label noise:** TweetEval's offensive/hate labels are known to have some subjectivity and ambiguity at 
+  the annotation level — borderline sarcasm, reclaimed slurs, and context-dependent phrases are hard for any model 
+  (or human annotator) to label consistently.
+- **Domain generalization:** The model is trained only on TweetEval data. Performance may degrade on hate speech 
+  patterns from other platforms, languages, or newer slang/meme-based harassment not represented in this dataset.
+- **Binary framing:** This treats "hate" and "offensive" as one merged class. A production system would likely need 
+  separate handling for hate speech (targeted, identity-based) vs. general offensive language (profanity, insults), 
+  since these carry different moderation implications.
 
 ---
 
@@ -159,9 +181,14 @@ Hate-Speech-Detection-BERT/
 ## 👤 Author
 
 **Nikita Debnath**  
-B.Tech CSE (Data Science) — Jain University, Bengaluru  
+B.Tech CSE (Data Science) — Jain University,Kanakpura
+
 [GitHub: nikitadn10](https://github.com/nikitadn10)
 
 ---
 
 <p align="center"><i>Built as part of an NLP/deep learning portfolio project.</i></p>
+
+
+
+
