@@ -1,0 +1,37 @@
+# ============================================
+# Hate Speech Detection — .gitignore
+# ============================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# --- Jupyter / Colab ---
+.ipynb_checkpoints/
+
+# --- Model outputs & checkpoints ---
+results/
+checkpoints/
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# --- HuggingFace cache ---
+.cache/
+huggingface/
+
+# --- Environment ---
+.env
+venv/
+env/
+
+# --- OS / Editor junk ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
